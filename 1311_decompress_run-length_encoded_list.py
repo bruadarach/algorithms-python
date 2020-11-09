@@ -7,10 +7,9 @@ class Solution:
             result.extend([nums[i+1]]*nums[i])
             i += 2
         return result
-'''
-(runtime / memory)
- 56 ms / 14.7 MB
-'''       
+        
+# (runtime / memory)
+#  56 ms / 14.7 MB
 
 
 ''' (68 ms / 14.6 MB)
