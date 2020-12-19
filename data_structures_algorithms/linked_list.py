@@ -3,10 +3,34 @@ class Element(object):
         self.value = value
         self.next = None
 
+    def __str__(self):
+        return str(self.value)
 
 class LinkedList(object):
     def __init__(self, head=None):
         self.head = head
+
+    def __str__(self):
+        print_list = '['
+        current = self.head
+        while True:
+            print_list += str(current)
+            if current.next == None:
+                break
+            current = current.next
+            print_list += ', '
+        print_list += ']'
+        return print_list
+
+    def __len__(self):
+        counter = 1
+        current = self.head
+        if self.head is None:
+            return None
+        while current.next:
+            current = current.next
+            counter += 1
+        return counter
 
     def append(self, new_element):
         current = self.head
@@ -56,32 +80,34 @@ class LinkedList(object):
                 self.head = current.next
 
 
-e1 = Element(1)
-e2 = Element(2)
-e3 = Element(3)
-e4 = Element(4)
-e5 = Element(5)
+if __name__ == "__main__":
 
-ll = LinkedList(e1)
-ll.append(e2)
-ll.append(e3)
-ll.append(e4)
+    e1 = Element(1)
+    e2 = Element(2)
+    e3 = Element(3)
+    e4 = Element(4)
+    e5 = Element(5)
 
-print(ll.head.value)  # 1
-print(ll.head.next.value)  # 2
-print(ll.head.next.next.value)  # 3
-print(ll.head.next.next.next.value) # 4 
+    ll = LinkedList(e1)
+    ll.append(e2)
+    ll.append(e3)
+    ll.append(e4)
 
-print(ll.get_position(1).value)  # 1
-print(ll.get_position(2).value)  # 2
-print(ll.get_position(3).value)  # 3
-print(ll.get_position(4).value)  # 4
+    print(ll.head.value)  # 1
+    print(ll.head.next.value)  # 2
+    print(ll.head.next.next.value)  # 3
+    print(ll.head.next.next.next.value) # 4 
 
-ll.insert(e5, 3)  # e1, e2, e5 , e3, e4
-print(ll.get_position(3).value)  # 5
+    print(ll.get_position(1).value)  # 1
+    print(ll.get_position(2).value)  # 2
+    print(ll.get_position(3).value)  # 3
+    print(ll.get_position(4).value)  # 4
 
-ll.delete(1)
-print(ll.get_position(1).value)  # 2
-print(ll.get_position(2).value)  # 5
-print(ll.get_position(3).value)  # 3
-print(ll.get_position(4).value)  # 4
+    ll.insert(e5, 3)  # e1, e2, e5 , e3, e4
+    print(ll.get_position(3).value)  # 5
+
+    ll.delete(1)
+    print(ll.get_position(1).value)  # 2
+    print(ll.get_position(2).value)  # 5
+    print(ll.get_position(3).value)  # 3
+    print(ll.get_position(4).value)  # 4
