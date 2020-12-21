@@ -111,3 +111,6 @@ if __name__ == "__main__":
     print(ll.get_position(2).value)  # 5
     print(ll.get_position(3).value)  # 3
     print(ll.get_position(4).value)  # 4
+
+    print('LinkedList :', ll)  # [2, 5, 3, 4]
+    print('LinkedList length:', len(ll)) # 4 
