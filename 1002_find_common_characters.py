@@ -36,3 +36,17 @@ class Solution:
 
 # (runtime / memory)
 #  44 ms / 14.4 MB
+
+
+
+'''
+class Solution:
+    def commonChars(self, A: List[str]) -> List[str]:
+    
+        common = A[0]
+        for i in range(1, len(A)):
+            common = list((collections.Counter(common) & collections.Counter(A[i])).elements())
+        return common
+'''
+# (runtime / memory)
+#  80 ms / 14.1 MB
