@@ -53,3 +53,34 @@ while q:
 # (2, 'Minji')
 # (3, 'Jake')
 # (4, 'Lucky')
+
+
+### 3. Using 'queue.PriorityQueue ###
+
+customers = PriorityQueue()
+
+customers.put((2, "Minji"))
+customers.put((3, "Jake"))
+customers.put((1, "Suji"))
+customers.put((4, "Lucky"))
+
+while not customers.empty():  # while customers: 하면 무한루프에 빠지네...
+    print(customers.get())
+# (1, 'Suji')
+# (2, 'Minji')
+# (3, 'Jake')
+# (4, 'Lucky')
+
+
+q = PriorityQueue()
+
+q.put((2, 'code'))
+q.put((1, 'eat'))
+q.put((3, 'sleep'))
+
+while not q.empty():
+    next_item = q.get()
+    print(next_item)
+# (1, 'eat')
+# (2, 'code')
+# (3, 'sleep')
