@@ -36,10 +36,8 @@ class Solution:
 
         result = [min(i) for i in matrix]
 
-        temp = []
-        answer = []
+        temp, answer = [], []
         for i in range(len(matrix[0])):  # 0,1,2,3
-
             for j in range(len(matrix)):  # 0,1,2
                 temp.append(matrix[j][i])
             if max(temp) in result:
@@ -48,4 +46,17 @@ class Solution:
         return answer
 
 # (runtime / memory)
-#  140 ms / 14.4 MB
+#  128 ms / 14.6 MB
+
+
+
+'''
+class Solution:
+    def luckyNumbers (self, matrix: List[List[int]]) -> List[int]:
+        
+        minrow = {min(r) for r in matrix} # {9, 3, 15}
+        maxcol = {max(c) for c in zip(*matrix)} # zip(*) # {16, 17, 15}
+        return list(minrow & maxcol)
+'''
+# (runtime / memory)
+#  120 ms / 14.5 MB
