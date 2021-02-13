@@ -44,3 +44,27 @@ class Solution:
 
 # (runtime / memory)
 #  44 ms / 14.2 MB
+
+
+'''
+class Solution:
+    def stringMatching(self, words: List[str]) -> List[str]:
+       
+        return set([i for i in words for j in words if i != j and j.find(i) >= 0])                     
+'''
+# (runtime / memory)
+#  40 ms / 14.1 MB
+
+
+
+'''
+class Solution:
+    def stringMatching(self, words: List[str]) -> List[str]:
+       
+        temp = ' '.join(words) # mass as hero superhero
+        subStr = [i for i in words if temp.count(i) >= 2]
+
+        return subStr
+'''
+# (runtime / memory)
+#  20 ms / 14.2 MB
