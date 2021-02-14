@@ -31,32 +31,68 @@ It's guaranteed that words[i] will be unique.
 '''
 
 
+
+##### 1) Easy to understand, using .find() #####
 class Solution:
     def stringMatching(self, words: List[str]) -> List[str]:
 
         result = []
         for i in words:
             for j in words:
-                if i != j:
-                    if j.find(i) >= 0:
-                        result.append(i)
-        return set(result)
+                if i != j and j.find(i) >= 0:
+                    result.append(i)
+                    break
+        return result
 
 # (runtime / memory)
-#  44 ms / 14.2 MB
+#  36 ms / 14.1 MB
+
 
 
 '''
 class Solution:
     def stringMatching(self, words: List[str]) -> List[str]:
-       
-        return set([i for i in words for j in words if i != j and j.find(i) >= 0])                     
+        
+        return set([i for i in words for j in words if i != j and j.find(i) >= 0])                             
 '''
 # (runtime / memory)
-#  40 ms / 14.1 MB
+#  36 ms / 14.1 MB
 
 
 
+##### 2. sort first and using .find() #####
+'''
+class Solution:
+    def stringMatching(self, words: List[str]) -> List[str]:
+        
+        words = sorted(words, key=len)
+        return set([words[i] for i in range(len(words)) for j in range(i+1,len(words)) if words[j].find(words[i]) >= 0])   
+'''
+# (runtime / memory)
+#  36 ms / 14.1 MB
+
+
+
+'''
+class Solution:
+    def stringMatching(self, words: List[str]) -> List[str]:
+        
+        words = sorted(words, key=len)
+    
+        result = []
+        for i in range(len(words)):
+            for j in range(i+1,len(words)):
+                if words[j].find(words[i]) >= 0:
+                    result.append(words[i])
+                    break
+        return result  
+'''
+# (runtime / memory)
+#  32 ms / 14.2 MB
+
+
+
+##### 3. other answers ##### 
 '''
 class Solution:
     def stringMatching(self, words: List[str]) -> List[str]:
@@ -68,3 +104,22 @@ class Solution:
 '''
 # (runtime / memory)
 #  20 ms / 14.2 MB
+
+
+
+'''
+class Solution:
+    def stringMatching(self, words: List[str]) -> List[str]:
+       
+        words = sorted(words, key=len)
+        result = []
+        
+        for i in range(len(words)):
+            for j in range(i+1,len(words)):
+                if words[i] in words[j]:
+                    result.append(words[i])
+                    break       
+        return result
+'''
+# (runtime / memory)
+#  28 ms / 14.3 MB
