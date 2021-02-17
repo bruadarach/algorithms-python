@@ -42,6 +42,20 @@ class Solution:
 '''
 class Solution:
     def commonChars(self, A: List[str]) -> List[str]:
+
+        first = Counter(A[0])
+        for i in range(1,len(A)):
+            first = first & Counter(A[i])
+        return list(first.elements())
+'''
+# (runtime / memory)
+#  52 ms / 14.3 MB
+
+
+
+'''
+class Solution:
+    def commonChars(self, A: List[str]) -> List[str]:
     
         common = A[0]
         for i in range(1, len(A)):
