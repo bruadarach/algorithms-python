@@ -58,3 +58,31 @@ class Solution:
 #  24 ms / 14.1 MB
 
 
+
+class Solution:
+    def check(self, nums: List[int]) -> bool:
+
+        count = 0
+        for i in range(0, len(nums)):
+            if nums[i] > nums[(i+1) % len(nums)]:
+                count += 1
+            if count > 1:
+                return False
+        return True
+
+# (runtime / memory)
+#  32 ms / 14.2 MB
+
+'''
+The solution is very simple, we can see that in an array, e.g)
+
+[3,4,5,1,2]
+
+There will be at most 1 case where nums[i] > nums[i + 1]. 
+It is the point where the list actually ends.
+The reason we need to use (i + 1) % len(nums) is because we need to check the element at the end of list with the first element as well.
+'''
+
+
+
+
