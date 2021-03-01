@@ -85,4 +85,15 @@ The reason we need to use (i + 1) % len(nums) is because we need to check the el
 
 
 
+class Solution:
+    def check(self, nums: List[int]) -> bool:
 
+        original = sorted(nums)
+        for i in range(0,len(nums)):
+            a = nums[i-1:] + nums[:i-1]
+            if a == original:
+                return True
+        return False
+
+# (runtime / memory)
+#  36 ms / 14.1 MB
