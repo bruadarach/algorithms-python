@@ -33,6 +33,8 @@ n == grid[i].length
 '''
 
 
+##### Brute Force (2) #####
+
 class Solution:
     def countNegatives(self, grid: List[List[int]]) -> int:
 
@@ -44,12 +46,42 @@ class Solution:
                 elif j > 0:
                     break
         return count
+
 # (runtime / memory)
 #  108 ms / 15.2 MB
 
 
 
+''' ##### Binary Search #####
+
+class Solution:
+    def countNegatives(self, grid: List[List[int]]) -> int:
+        
+        return sum([self.binary_search(arr) for arr in grid])
+        
+    def binary_search(self, arr):
+        
+        start, end = 0, len(arr) - 1
+        
+        while start <= end:
+            mid = (start + end) // 2
+            if arr[mid] < 0:
+                end = mid - 1
+            else: 
+                start = mid + 1
+        return len(arr) - start
+
+grid = [[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]
+
+cal = Solution()
+print(cal.countNegatives(grid)) # 8
 '''
+# (runtime / memory)
+#  112 ms / 15.2 MB
+
+
+
+''' ##### Brute Force (1) #####
 class Solution:
     def countNegatives(self, grid: List[List[int]]) -> int:
 
@@ -59,7 +91,7 @@ class Solution:
                 if j < 0:
                     count += 1
         return count
-
+'''
 # (runtime / memory)
 #  124 ms / 15 MB
-'''
+
