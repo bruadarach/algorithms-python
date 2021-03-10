@@ -82,3 +82,30 @@ class Solution:
         return a
 '''
 # WRONG ANSWER! 
+
+
+
+'''
+class Solution:
+    def fib(self, n: int) -> int:
+        
+        if n == 0:
+            return 0
+
+        elif n == 1:
+            return 1
+
+        elif n >= 2:
+            first = 0
+            second = 1
+            next = first + second
+
+            for i in range(2, n):
+                first = second
+                second = next
+                next = first + second
+        return next
+'''
+# (runtime / memory)
+#  28 ms / 14.2 M
+
