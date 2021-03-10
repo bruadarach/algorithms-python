@@ -60,3 +60,31 @@ class Solution:
 
 # (runtime / memory)
 #  16 ms / 14.1 MB
+
+
+
+''' ##### zip_longest(iterable1, iterable2, fillvalue="")
+
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        
+        return ''.join(i+j for i, j in zip_longest(word1,word2, fillvalue=''))
+'''
+# (runtime / memory)
+#  28 ms / 14.2 MB
+
+
+
+'''
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        
+        new = ''
+        
+        for i in range(min(len(word1), len(word2))):
+            new += word1[i]+word2[i]
+        
+        return new + word1[i+1:] + word2[i+1:]
+'''
+# (runtime / memory)
+#  28 ms / 14.4 MB
