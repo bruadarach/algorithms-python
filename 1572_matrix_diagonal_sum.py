@@ -45,16 +45,37 @@ class Solution:
             result += mat[i][i]
             result += mat[i][::-1][i]
 
+        mid = len(mat) // 2
+        if len(mat) % 2 == 1:
+            result -= mat[mid][mid]
+
+        return result
+
+# (runtime / memory)
+#  104 ms / 14.4 MB
+
+
+
+'''
+class Solution:
+    def diagonalSum(self, mat: List[List[int]]) -> int:
+
+        result = 0
+        for i in range(len(mat)):
+            result += mat[i][i]
+            result += mat[i][::-1][i]
+
             if len(mat[0]) % 2 != 0 and i == len(mat[0]) // 2:
                 result -= mat[i][::-1][i]
 
         return result
-
+'''
 # (runtime / memory)
 #  108 ms / 14.5 MB
 
 
 
+'''
 class Solution:
     def diagonalSum(self, mat: List[List[int]]) -> int:
 
@@ -75,6 +96,6 @@ class Solution:
                 result += mat[i][i]
                 result += mat[i][::-1][i]
         return result
-
+'''
 # (runtime / memory)
 #  100 ms / 14.5 MB
