@@ -33,7 +33,9 @@ class Solution:
     def minSubsequence(self, nums: List[int]) -> List[int]:
 
         nums.sort()
+
         result = []
+        
         while sum(result) <= sum(nums):
             result.append(nums.pop())
         return result
