@@ -33,7 +33,5 @@ class Solution:
                 result.append(i)
         return "".join(result)
 
-
-
 # (runtime / memory)
 #  56 ms / 14.8 MB
