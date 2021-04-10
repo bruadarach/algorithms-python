@@ -34,5 +34,12 @@ The number of nodes in the given list will be between 1 and 100.
 
 class Solution:
     def middleNode(self, head: ListNode) -> ListNode:
+
+        slow = fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+        
 # (runtime / memory)
 #  84 ms / 14.5 MB
