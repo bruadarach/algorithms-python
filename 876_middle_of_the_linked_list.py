@@ -26,20 +26,76 @@ The number of nodes in the given list will be between 1 and 100.
 
 
 # Definition for singly-linked list.
+
 # class ListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
 
-
 class Solution:
     def middleNode(self, head: ListNode) -> ListNode:
-
         slow = fast = head
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
         return slow
-        
+
 # (runtime / memory)
-#  84 ms / 14.5 MB
+#  28 ms / 14.1 MB
+
+
+
+'''
+class Element(object):
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class Solution(object):
+    
+    def __init__(self, head=None):
+        self.head = head
+        
+    def append(self, new_element):
+        current = self.head
+        if self.head:
+            while current.next:
+                current = current.next
+            current.next = new_element
+        else:
+            self.head = new_element
+        
+    def middleNode(self):
+        slow = fast = self.head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+ 
+
+if __name__ == "__main__":
+    
+    e1 = Element(1)
+    e2 = Element(2)
+    e3 = Element(3)
+    e4 = Element(4)
+    e5 = Element(5)
+    e6 = Element(6)
+    
+    ll = Solution(e1)
+    ll.append(e2)
+    ll.append(e3)
+    ll.append(e4)
+    ll.append(e5)
+    ll.append(e6)
+    
+    print(ll.head.value)
+    print(ll.head.next.value)
+    print(ll.head.next.next.value)
+    print(ll.head.next.next.next.value)
+    print(ll.head.next.next.next.next.value)
+    print(ll.head.next.next.next.next.next.value)
+    
+    answer = ll.middleNode()
+    print('The answer is:', answer.value)
+'''
