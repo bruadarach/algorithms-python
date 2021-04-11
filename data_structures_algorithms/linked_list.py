@@ -79,6 +79,13 @@ class LinkedList(object):
             else:
                 self.head = current.next
 
+    def middleNode(self):
+        slow = fast = self.head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+
 
 if __name__ == "__main__":
 
@@ -114,3 +121,6 @@ if __name__ == "__main__":
 
     print('LinkedList :', ll)  # [2, 5, 3, 4]
     print('LinkedList length:', len(ll)) # 4 
+
+    print(ll.middleNode().value) 
+    # 3 # if the list has two middle nodes, it returns the second one.
