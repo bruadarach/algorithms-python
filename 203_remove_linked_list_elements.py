@@ -28,14 +28,13 @@ The number of nodes in the list is in the range [0, 10^4].
 '''
 
 
-
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
 
-
+##### Iteration #####
 class Solution:
     def removeElements(self, head: ListNode, val: int) -> ListNode:
 
@@ -60,3 +59,28 @@ class Solution:
 
 # (runtime / memory)
 #  64 ms / 17.2 MB
+
+
+##### Recursion #####
+'''
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def removeElements(self, head: ListNode, val: int) -> ListNode:
+
+        if not head:
+            return None
+
+        if head.val == val:
+            head = self.removeElements(head.next, val)
+        else:
+            head.next = self.removeElements(head.next, val)
+
+        return head
+'''
+# (runtime / memory)
+#  76 ms / 25.6 MB
