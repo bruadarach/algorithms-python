@@ -51,3 +51,48 @@ class Solution:
 
 # (runtime / memory)
 #  64 ms / 14.3 MB
+
+
+'''
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        result = []
+        nums2_idx = {num:idx for idx, num in enumerate(nums2)}
+        
+        for i in nums1:
+            idx = nums2_idx[i]
+            
+            for j in nums2[idx:]:
+                if j > i:
+                    result.append(j)
+                    break
+            else:
+                result.append(-1)
+        return result 
+'''
+# (runtime / memory)
+#  52 ms / 14.7 MB
+
+
+
+##### STACK! #####
+''' 
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        
+        if not nums1 or not nums2:
+            return []
+        
+        mapper = {}
+        stack = [nums2[0]]
+        
+        for i in range(1,len(nums2)):
+            while stack and nums2[i] > stack[-1]:
+                mapper[stack.pop()] = nums2[i]
+            stack.append(nums2[i])
+        for key in stack:
+            mapper[key] = -1
+        return [mapper[i] for i in nums1]
+'''
+# (runtime / memory)
+#  40 ms / 14.6 MB
