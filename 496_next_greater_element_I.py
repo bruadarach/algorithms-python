@@ -33,3 +33,21 @@ All the integers of nums1 also appear in nums2.
 
 Follow up: Could you find an O(nums1.length + nums2.length) solution?
 '''
+
+
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+
+        result = []
+        for i in nums1:
+            idx = nums2.index(i)
+            for j in range(idx, len(nums2)):
+                if nums2[j] > i:
+                    result.append(nums2[j])
+                    break
+            else:
+                result.append(-1)
+        return result
+
+# (runtime / memory)
+#  64 ms / 14.3 MB
