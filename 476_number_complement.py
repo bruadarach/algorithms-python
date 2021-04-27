@@ -25,5 +25,46 @@ This question is the same as 1009: https://leetcode.com/problems/complement-of-b
 '''
 
 
+class Solution:
+    def findComplement(self, num: int) -> int:
+
+        bit_mask = (2**num.bit_length()) - 1
+        return (num ^ bit_mask)
+
 # (runtime / memory)
-#  52 ms / 14.7 MB
+#  20 ms / 14.3 MB
+
+
+'''
+Example_#1
+
+input: 5
+
+5 = 0b 101
+bits length of 5 = 3
+masking = 2^3 -1 = 8 - 1 = 7 = 0b 111
+
+5 = 0b 101
+3 = 0b 111 ( XOR )
+—————————
+2 = 0b 010
+
+output: 2
+'''
+
+'''
+Example_#2
+
+input: 9
+
+9 = 0b 1001
+bits length of 2 = 4
+masking = 2^4 -1 = 16 - 1 = 15 = 0b 1111
+
+09 = 0b 1001
+15 = 0b 1111 ( XOR )
+—————————
+06 = 0b 0110
+
+output: 6
+'''
