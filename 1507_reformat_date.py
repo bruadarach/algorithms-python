@@ -31,3 +31,59 @@ Constraints:
 
 The given dates are guaranteed to be valid, so no error handling is necessary.
 '''
+
+
+class Solution:
+    def reformatDate(self, date: str) -> str:
+
+        dic_month = {"Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04", "May": "05", "Jun": "06",
+                     "Jul": "07", "Aug": "08", "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12"}
+        date = date.split(" ")
+
+        day = date[0][:-2]
+        if len(day) < 2:
+            day = "0"+day
+        month = dic_month[date[1]]
+        year = date[2]
+
+        return year + '-' + month + '-' + day
+
+# (runtime / memory)
+#  28 ms / 14.2 MB
+
+
+
+'''
+class Solution:
+    def reformatDate(self, date: str) -> str:
+
+        dic_month = {"Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04", "May": "05", "Jun": "06",
+                     "Jul": "07", "Aug": "08", "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12"}
+        day, month, year = date.split(" ")
+        day = "0"+day[0] if len(day[:-2]) < 2 else day[:-2]
+        month = dic_month[month]
+
+        return year + '-' + month + '-' + day
+'''
+# (runtime / memory)
+#  32 ms / 14 MB
+
+
+
+'''
+class Solution:
+    def reformatDate(self, date: str) -> str:
+        
+        dic = {"Jan":"01", "Feb":"02", "Mar":"03", "Apr":"04", "May":"05", "Jun":"06", "Jul":"07", "Aug":"08", "Sep":"09", "Oct":"10", "Nov":"11", "Dec":"12"}
+        
+        result = ""
+        
+        if (len(date) == 13):
+            result += date[-4:] + '-' + dic[date[-8:-5]] + '-' + date[:2]
+        else:
+            result += date[-4:] + '-' + dic[date[-8:-5]] + '-' +'0'+ date[0]
+            
+        return result    
+'''
+# (runtime / memory)
+#  24 ms / 14.3 MB
