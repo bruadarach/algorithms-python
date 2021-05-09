@@ -24,5 +24,26 @@ Note:
 1 <= stones[i] <= 1000
 '''
 
+
+class Solution:
+    def lastStoneWeight(self, stones: List[int]) -> int:
+
+        while len(stones) > 1:
+            stones = sorted(stones, reverse=True)
+
+            if stones[0] == stones[1]:
+                stones.pop(1)
+                stones.pop(0)
+
+            elif stones[0] != stones[1]:
+                stones.append(stones[0] - stones[1])
+                stones.pop(1)
+                stones.pop(0)
+
+        if len(stones) == 0:
+            return 0
+
+        return stones[0]
+
 # (runtime / memory)
-#  32 ms / 14.9 MB
+#  16 ms / 14.3 MB
