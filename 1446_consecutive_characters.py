@@ -56,7 +56,7 @@ class Solution:
                 count = 1
         return max(count, max_count)
 
-# (runtime / memory).
+# (runtime / memory)
 #  32 ms / 14.9 MB
 
 
@@ -83,7 +83,7 @@ class Solution:
                 count = 1
         return max(count, max_count)
 '''
-# (runtime / memory).
+# (runtime / memory)
 #  28 ms / 14 MB
 
 
@@ -102,7 +102,7 @@ class Solution:
                 count = 1
         return max_count
 '''
-# (runtime / memory).
+# (runtime / memory)
 #  36 ms / 14.3 MB
 
 
@@ -113,5 +113,5 @@ class Solution:
         
         return max(len(list(b)) for a, b in itertools.groupby(s))
 '''
-# (runtime / memory).
+# (runtime / memory)
 #  36 ms / 14.2 MB
