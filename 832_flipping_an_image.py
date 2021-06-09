@@ -9,6 +9,27 @@ To invert an image means that each 0 is replaced by 1, and each 1 is replaced by
 0 <= A[i][j] <= 1
 """
 
+
+class Solution:
+    def flipAndInvertImage(self, image: List[List[int]]) -> List[List[int]]:
+
+        for i in range(len(image)):
+            image[i].reverse()
+            for j in range(len(image[i])):
+                #print(image[i][j])
+                if image[i][j] == 0:
+                    image[i][j] = 1
+                elif image[i][j] == 1:
+                    image[i][j] = 0
+        return image
+        
+# (runtime / memory)
+#  44 ms / 14.3 MB
+
+
+
+""" SOLUTION 1
+
 class Solution:
     def flipAndInvertImage(self, A: List[List[int]]) -> List[List[int]]:
         
@@ -29,6 +50,9 @@ class Solution:
             result=[]
             i=i+1
         return new
+"""
+
+
 
 """ SOLUTION 2
 
@@ -50,6 +74,8 @@ class Solution:
 
 """ 
 
+
+
 """ SOLUTION 3
 
 class Solution:
@@ -62,6 +88,4 @@ class Solution:
         return A
 """
         
-        
-        
-        
+
