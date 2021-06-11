@@ -55,12 +55,46 @@ class Solution:
         for i in range(len(words)):
             convert = words[i].maketrans('abcdefghij', '0123456789')
             words[i] = words[i].translate(convert)
+
+        return int(words[0])+int(words[1]) == int(words[2])
+
+# (runtime / memory)
+#  28 ms / 14.2 MB
+
+
+
+class Solution:
+    def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
+
+        words = [firstWord, secondWord, targetWord]
+
+        for i in range(len(words)):
+            convert = words[i].maketrans('abcdefghij', '0123456789')
+            words[i] = words[i].translate(convert)
             if words[i].count('0') == len(words[i]):
                 words[i] = 0
+                return int(words[0])+int(words[1]) == int(words[2])
             else:
                 words[i] = words[i].lstrip('0')
 
         return int(words[0])+int(words[1]) == int(words[2])
 
+# (runtime / memory)
+#  32 ms / 14.2 MB
+
+
+
+class Solution:
+    def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
+
+        dic = {'a': '0', 'b': '1', 'c': '2', 'd': '3', 'e': '4',
+               'f': '5', 'g': '6', 'h': '7', 'i': '8', 'j': '9'}
+
+        s1 = ''.join([dic[i] for i in firstWord])
+        s2 = ''.join([dic[i] for i in secondWord])
+        s3 = ''.join([dic[i] for i in targetWord])
+
+        return (int(s1) + int(s2)) == int(s3)
+        
 # (runtime / memory)
 #  32 ms / 14.2 MB
