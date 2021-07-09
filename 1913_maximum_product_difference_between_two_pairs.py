@@ -25,8 +25,8 @@ The product difference is (9 * 8) - (2 * 4) = 64.
 
 Constraints:
 
-4 <= nums.length <= 104
-1 <= nums[i] <= 104
+4 <= nums.length <= 10^4
+1 <= nums[i] <= 10^4
 '''
 
 
