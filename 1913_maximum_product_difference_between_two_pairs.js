@@ -41,4 +41,23 @@ var maxProductDifference = function(nums) {
 };
 
 // (runtime / memory)
-//  64 ms / 38.6 MB
+//  96 ms / 41.9 MB
+
+
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxProductDifference = function(nums) {
+    nums = nums.sort(compare)
+    let n = nums.length
+    return nums[n - 1] * nums[n - 2] - nums[0] * nums[1]
+
+    function compare(a, b) {
+        return a - b;
+    }
+};
+
+// (runtime / memory)
+//  132 ms / 41.9 MB
