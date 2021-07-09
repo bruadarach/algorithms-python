@@ -28,3 +28,14 @@ Constraints:
 4 <= nums.length <= 104
 1 <= nums[i] <= 104
 '''
+
+
+class Solution:
+    def maxProductDifference(self, nums: List[int]) -> int:
+
+        sort_nums = sorted(nums)
+
+        return (sort_nums[-1] * sort_nums[-2]) - (sort_nums[0]*sort_nums[1])
+
+# (runtime / memory)
+#  150 ms / 15.4 MB
