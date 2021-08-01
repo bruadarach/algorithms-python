@@ -29,3 +29,16 @@ Constraints:
 
 1 <= n <= 50 
 '''
+
+
+class Solution:
+    def countVowelStrings(self, n: int) -> int:
+        
+        dp = [1] * 5 # [1,1,1,1,1]
+        for k in range(n):
+            for m in range(1, 5):
+                dp[m] += dp[m - 1]
+        return dp[-1]
+
+# (runtime / memory)
+#  28 ms / 14.3 MB
